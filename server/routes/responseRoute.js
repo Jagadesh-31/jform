@@ -1,5 +1,5 @@
 let express = require('express');
-let {findResponse,addResponse} = require('../controllers/Response.js');
+let {findResponse,addResponse} = require('../controllers/response.js');
 
 let responseRoutes = express.Router();
 const multer = require('multer');

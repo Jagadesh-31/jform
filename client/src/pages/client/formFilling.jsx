@@ -12,6 +12,7 @@ export function FormFilling() {
   const [responses, setResponses] = useState({})
   const [files, setFiles] = useState({})
   const [loading, setLoading] = useState(true)
+  const [submitting, setSubmitting] = useState(false)
   const [message, setMessage] = useState('')
 
   useEffect(() => {
@@ -44,6 +45,9 @@ export function FormFilling() {
 
   const handleSubmit = async e => {
     e.preventDefault()
+    setSubmitting(true)
+    setMessage('')
+
     try {
       const formData = new FormData()
       formData.append('formId', id)
@@ -58,11 +62,13 @@ export function FormFilling() {
         headers: { 'Content-Type': 'multipart/form-data' },
       })
 
-      setMessage('✅ Form submitted successfully!')
+      setMessage('Form submitted successfully!')
       setTimeout(() => navigate('/home'), 1500)
     } catch (err) {
       console.error(err)
-      setMessage('❌ Failed to submit form')
+      setMessage('Failed to submit form')
+    } finally {
+      setSubmitting(false)
     }
   }
 
@@ -139,15 +145,24 @@ export function FormFilling() {
 
           <button
             type='submit'
-            className='mt-4 bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-xl font-semibold transition duration-200'
+            disabled={submitting}
+            className={`mt-4 bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-xl font-semibold transition duration-200 ${submitting ? 'opacity-50 cursor-not-allowed' : ''}`}
           >
-            Submit
+            {submitting ? (
+              <div className='flex items-center justify-center gap-2'>
+                <svg className='animate-spin h-5 w-5 text-white' xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24'>
+                  <circle className='opacity-25' cx='12' cy='12' r='10' stroke='currentColor' strokeWidth='4'></circle>
+                  <path className='opacity-75' fill='currentColor' d='M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z'></path>
+                </svg>
+                Uploading...
+              </div>
+            ) : (
+              'Submit'
+            )}
           </button>
 
-          {message && <p className='text-center text-lg mt-3'>{message}</p>}
+          {message && <p className='text-center text-lg mt-3 text-white'>{message}</p>}
         </form>
-
-
       </div>
     </div>
   )

@@ -17,6 +17,7 @@ export function MyResponses() {
       .get(`http://localhost:5000/responses/find?userId=${user._id}`)
       .then(res => {
         setResponses(res.data);
+        console.log(res.data)
         setLoading(false);
       })
       .catch(err => {
@@ -52,7 +53,7 @@ export function MyResponses() {
                 <div className="flex justify-between items-center">
                   <div>
                     <p><strong>Submitted At:</strong> {resp.submittedAt?.split("T")[0]}</p>
-                    <p><strong>Form:</strong> {resp.title || 'Untitled Form'}</p>
+                    <p><strong>FormId :</strong> {resp.formId || 'Untitled Form'}</p>
                   </div>
                   <Link
                     to={`/response/${resp._id}`}

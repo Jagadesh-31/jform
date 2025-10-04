@@ -12,7 +12,7 @@ const findForm = async (req, res) => {
     } else {
       findRes = await FormModel.find().sort({ createdAt : 1 });
     }
-    console.log(findRes);
+  
 
     if (!findRes || (Array.isArray(findRes) && findRes.length === 0)) {
       return res.status(404).json({ error: "Forms not found" });

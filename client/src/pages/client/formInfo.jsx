@@ -23,18 +23,21 @@ export function FormInfo() {
         const formRes = await axios.get(`http://localhost:5000/forms/find?formId=${id}`);
         setForm(formRes.data);
 
-  
-        const respRes = await axios.get(`http://localhost:5000/responses/find?formId=${id}&userId=${user._id}`);
-        if (respRes.data && respRes.data.length > 0) {
-          setAlreadyFilled(true);
-        }
-
       } catch (err) {
         console.error(err);
         setError('Failed to load form.');
       } finally {
         setLoading(false);
       }
+
+
+ 
+        const respRes = await axios.get(`http://localhost:5000/responses/find?formId=${id}&userId=${user._id}`);
+        if (respRes.data && respRes.data.length > 0) {
+          setAlreadyFilled(true);
+        }
+      
+
     };
 
     fetchFormAndCheckResponse();

@@ -18,7 +18,7 @@ const findResponse = async (req, res) => {
     if(formId && userId){
 
       findRes = await responseModel.find({ formId, submittedBy: userId });
-      console.log(findRes)
+
     } else if(userId){
       findRes = await responseModel.find({  submittedBy : userId });
     }else if (responseId) {

@@ -122,7 +122,7 @@ export function CreateForm() {
                   <option value='text'>Text</option>
                   <option value='number'>Number</option>
                   <option value='file'>File</option>
-                  <option value='dropdown'>Dropdown</option>
+
                 </select>
 
                 <label className='flex items-center gap-1 text-white'>
@@ -133,24 +133,6 @@ export function CreateForm() {
                     onChange={e => updateField(idx, 'required', e.target.checked)}
                   />
                 </label>
-
-                {field.type === 'dropdown' && (
-                  <div className='flex flex-col gap-1 md:flex-1'>
-                    {field.options.map((opt, i) => (
-                      <div key={i} className='flex gap-1'>
-                        <input
-                          type='text'
-                          placeholder='Option'
-                          value={opt}
-                          onChange={e => updateOption(idx, i, e.target.value)}
-                          className='p-1 rounded-md text-white bg-black flex-1 border border-white'
-                        />
-                        <button type='button' onClick={() => removeOption(idx, i)} className='bg-red-600 px-2 rounded-md'>X</button>
-                      </div>
-                    ))}
-                    <button type='button' onClick={() => addOption(idx)} className='bg-[#4242FA] px-2 rounded-md mt-1'>Add Option</button>
-                  </div>
-                )}
 
                 <button type='button' onClick={() => removeField(idx)} className='bg-[#4242FA] px-2 rounded-md mt-1 md:mt-0'>Remove Field</button>
               </div>
