@@ -1,0 +1,85 @@
+*{
+  font-family:poppins;
+  margin:0;
+  box-sizing : border-box;
+  scrollbar-width: 0px;
+}
+
+.active{
+background-color:#4242FA ;
+}
+
+.light{
+  color:#B1DFF6;
+}
+
+.medium{
+  color:#97D0ED;
+}
+
+.dark{
+  color:#4242FA;
+}
+
+.neuton{
+   font-family: "Neuton"
+}
+
+
+
+
+
+
+/** For mobile devices **/
+@media (max-width: 767px) {
+    .custom-shape-divider-bottom-1749572710 svg {
+        width: calc(173% + 1.3px);
+        height: 120px;
+    }
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1); 
+    filter: brightness(0) saturate(100%) invert(50%) sepia(100%) saturate(1000%) hue-rotate(300deg); 
+    opacity: 1;
+}
+
+/* *::selection {
+    background: transparent;
+} */
+
+
+.backgroundDiv{
+    width:100vw;
+    padding-top:30px;
+    margin-top :46px;
+    overflow-x:hidden;
+    background:#0D0F12;
+}
+
+.container{
+    padding-top:30px;
+    width:90%;
+    height:auto;
+    margin :auto;
+    overflow:hidden;
+    padding-bottom:30px;
+}
+
+
+.btn{
+ padding:4px 8px;
+ border-radius:15px;
+ border:2px solid rgb(122, 117, 117);
+ cursor:pointer;
+ user-select:none;
+ transition:all 500 linear 0s;
+}
+
+.btn:hover{
+border:2px solid white;
+}
+
+.btn:active{
+background-color: #4242FA;
+}
