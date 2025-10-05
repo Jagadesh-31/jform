@@ -1,4 +1,4 @@
-import axios from 'axios';
+
 import { useState, useEffect, useContext } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { FiEdit2 } from 'react-icons/fi';
