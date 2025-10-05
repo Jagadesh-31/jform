@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import axios from 'axios';
 import '../../App.css';
+import axios from '../api/axios.jsx'
 
 export function CreateForm() {
   const [title, setTitle] = useState('');
@@ -48,7 +49,7 @@ export function CreateForm() {
     if (fields.length === 0) return alert('At least one field is required');
     setLoading(true);
     try {
-      await axios.post('http://localhost:5000/forms/create', {
+      await axios.post('/forms/create', {
         title,
         description,
         lastDate,

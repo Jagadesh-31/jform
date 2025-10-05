@@ -3,6 +3,7 @@ import { useParams, Link, useNavigate } from 'react-router-dom';
 import { useState, useEffect, useContext } from 'react';
 import { authContext } from '../../contexts/authContext.jsx';
 import Loader from '../../components/loader.jsx';
+import axios from '../api/axios.jsx'
 
 export function FormInfo() {
   const { user } = useContext(authContext);
@@ -20,7 +21,7 @@ export function FormInfo() {
         setLoading(true);
 
       
-        const formRes = await axios.get(`http://localhost:5000/forms/find?formId=${id}`);
+        const formRes = await axios.get(`/forms/find?formId=${id}`);
         setForm(formRes.data);
 
       } catch (err) {
@@ -32,7 +33,7 @@ export function FormInfo() {
 
 
  
-        const respRes = await axios.get(`http://localhost:5000/responses/find?formId=${id}&userId=${user._id}`);
+        const respRes = await axios.get(`/responses/find?formId=${id}&userId=${user._id}`);
         if (respRes.data && respRes.data.length > 0) {
           setAlreadyFilled(true);
         }

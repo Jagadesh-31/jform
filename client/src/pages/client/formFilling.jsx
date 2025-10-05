@@ -2,6 +2,7 @@ import axios from 'axios'
 import { useParams, Link, useNavigate } from 'react-router-dom'
 import { useEffect, useState, useContext } from 'react'
 import { authContext } from '../../contexts/authContext.jsx'
+import axios from '../api/axios.jsx'
 
 export function FormFilling() {
   const { user } = useContext(authContext)
@@ -18,7 +19,7 @@ export function FormFilling() {
   useEffect(() => {
     const fetchForm = async () => {
       try {
-        const formRes = await axios.get(`http://localhost:5000/forms/find?formId=${id}`)
+        const formRes = await axios.get(`/forms/find?formId=${id}`)
         setForm(formRes.data || null)
       } catch (err) {
         console.error(err)
@@ -58,7 +59,7 @@ export function FormFilling() {
         formData.append('files', file, file.name)
       })
 
-      await axios.post('http://localhost:5000/responses/add', formData, {
+      await axios.post('/responses/add', formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
       })
 

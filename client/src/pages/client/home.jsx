@@ -7,6 +7,7 @@ import '../../App.css'
 import Loader from '../../components/loader.jsx'
 import {FormsContainer} from '../../components/formsContainer.jsx'
 import { authContext } from '../../contexts/authContext.jsx'
+import axios from '../api/axios.jsx'
 
 export const dataContext = createContext()
 
@@ -20,7 +21,7 @@ export function Home () {
     setData(null)
     setLoading(true)
       axios
-        .get('http://localhost:5000/forms/find')
+        .get('/forms/find')
         .then(res => {
           setData(res.data)
           console.log(res.data)

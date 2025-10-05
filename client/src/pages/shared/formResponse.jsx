@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import Loader from '../../components/loader.jsx';
 import { FaDownload, FaTimes } from 'react-icons/fa';
+import axios from '../api/axios.jsx'
 
 export function FormResponse() {
   const { id } = useParams(); 
@@ -18,13 +19,13 @@ export function FormResponse() {
         setLoading(true);
         setError('');
 
-        const res = await axios.get(`http://localhost:5000/responses/find?responseId=${id}`);
+        const res = await axios.get(`/responses/find?responseId=${id}`);
         const data = res.data?.[0] || res.data;
         console.log(res.data)
         setResponse(data);
 
         if (data?.submittedBy) {
-          const userRes = await axios.get(`http://localhost:5000/auth/find?id=${data.submittedBy}`);
+          const userRes = await axios.get(`/auth/find?id=${data.submittedBy}`);
           setUser(userRes.data.user || userRes.data);
         }
 

@@ -5,6 +5,7 @@ import { FiEdit2 } from 'react-icons/fi';
 import { MdDeleteOutline } from 'react-icons/md';
 import Loader from '../../components/loader.jsx';
 import { authContext } from '../../contexts/authContext.jsx';
+import axios from '../api/axios.jsx'
 
 export function AdminFormInfo() {
   const { user } = useContext(authContext);
@@ -19,10 +20,10 @@ export function AdminFormInfo() {
     async function fetchFormAndResponses() {
       try {
         setLoading(true);
-        const formRes = await axios.get(`http://localhost:5000/forms/find?formId=${id}`);
+        const formRes = await axios.get(`/forms/find?formId=${id}`);
         setForm(formRes.data);
 
-        const res = await axios.get(`http://localhost:5000/responses/find?formId=${id}`);
+        const res = await axios.get(`/responses/find?formId=${id}`);
         setResponses(res.data || []); 
 
         setLoading(false);
@@ -38,7 +39,7 @@ export function AdminFormInfo() {
   const handleDelete = async (formId) => {
     if (!window.confirm('Are you sure you want to delete this form?')) return;
     try {
-      await axios.delete(`http://localhost:5000/forms/delete/${formId}`);
+      await axios.delete(`/forms/delete/${formId}`);
       alert('Form deleted successfully');
       navigate('/admin/forms');
     } catch (err) {

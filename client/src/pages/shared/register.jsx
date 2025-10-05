@@ -2,7 +2,7 @@ import axios from 'axios'
 import { useState, useContext, useEffect } from 'react'
 import { Navigate, useLocation, Link, useNavigate } from 'react-router-dom'
 import { authContext } from '../../contexts/authContext'
-
+import axios from '../api/axios.jsx'
 
 export function Login() {
   const { user, setUser, authMessage } = useContext(authContext)
@@ -19,7 +19,7 @@ export function Login() {
   const handleSubmit = async event => {
     event.preventDefault()
     try {
-      const res = await axios.post('http://localhost:5000/auth/login', formData)
+      const res = await axios.post('/auth/login', formData)
       setMessage(res.data.message)
 
       if (res.data.token) {
@@ -159,7 +159,7 @@ export function Signup() {
   const handleSubmit = async event => {
     event.preventDefault()
     try {
-      const res = await axios.post('http://localhost:5000/auth/register', formData)
+      const res = await axios.post('/auth/register', formData)
       setMessage(res.data.message)
 
       if (res.data.token) {

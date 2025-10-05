@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useState, useEffect, useContext } from 'react';
 import { authContext } from '../../contexts/authContext.jsx';
 import Loader from '../../components/loader.jsx';
+import axios from '../api/axios.jsx'
 
 export function MyResponses() {
   const { user } = useContext(authContext);
@@ -14,7 +15,7 @@ export function MyResponses() {
     setLoading(true);
 
     axios
-      .get(`http://localhost:5000/responses/find?userId=${user._id}`)
+      .get(`/responses/find?userId=${user._id}`)
       .then(res => {
         setResponses(res.data);
         console.log(res.data)
