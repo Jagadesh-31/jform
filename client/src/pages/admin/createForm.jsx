@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 import '../../App.css';
-import axios from '../api/axios.jsx'
+import axios from '../../api/axios.jsx'
 
 export function CreateForm() {
   const [title, setTitle] = useState('');

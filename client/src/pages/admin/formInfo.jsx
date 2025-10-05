@@ -5,7 +5,7 @@ import { FiEdit2 } from 'react-icons/fi';
 import { MdDeleteOutline } from 'react-icons/md';
 import Loader from '../../components/loader.jsx';
 import { authContext } from '../../contexts/authContext.jsx';
-import axios from '../api/axios.jsx'
+import axios from '../../api/axios.jsx'
 
 export function AdminFormInfo() {
   const { user } = useContext(authContext);

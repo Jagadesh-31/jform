@@ -7,7 +7,7 @@ import '../../App.css'
 import Loader from '../../components/loader.jsx'
 import {FormsContainer} from '../../components/formsContainer.jsx'
 import { authContext } from '../../contexts/authContext.jsx'
-import axios from '../api/axios.jsx'
+import axios from '../../api/axios.jsx'
 
 export const dataContext = createContext()
 

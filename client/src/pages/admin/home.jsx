@@ -2,7 +2,7 @@
 import { useState, useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../../App.css';
-import axios from '../api/axios.jsx'
+import axios from '../../api/axios.jsx'
 import Loader from '../../components/loader.jsx';
 import { FormsContainer } from '../../components/formsContainer.jsx';
 import { authContext } from '../../contexts/authContext.jsx';

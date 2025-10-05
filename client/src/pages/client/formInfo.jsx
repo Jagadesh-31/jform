@@ -3,7 +3,7 @@ import { useParams, Link, useNavigate } from 'react-router-dom';
 import { useState, useEffect, useContext } from 'react';
 import { authContext } from '../../contexts/authContext.jsx';
 import Loader from '../../components/loader.jsx';
-import axios from '../api/axios.jsx'
+import axios from '../../api/axios.jsx'
 
 export function FormInfo() {
   const { user } = useContext(authContext);

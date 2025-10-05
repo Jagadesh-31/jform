@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import Loader from '../../components/loader.jsx';
 import { FaDownload, FaTimes } from 'react-icons/fa';
-import axios from '../api/axios.jsx'
+import axios from '../../api/axios.jsx'
 
 export function FormResponse() {
   const { id } = useParams(); 

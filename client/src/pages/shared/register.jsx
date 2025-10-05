@@ -2,7 +2,7 @@
 import { useState, useContext, useEffect } from 'react'
 import { Navigate, useLocation, Link, useNavigate } from 'react-router-dom'
 import { authContext } from '../../contexts/authContext'
-import axios from '../api/axios.jsx'
+import axios from '../../api/axios.jsx'
 
 export function Login() {
   const { user, setUser, authMessage } = useContext(authContext)
