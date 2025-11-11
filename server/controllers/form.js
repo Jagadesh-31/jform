@@ -30,7 +30,7 @@ const createForm = async (req, res) => {
   try {
     const { title, description, fields,lastDate} = req.body;
 
-    const validTypes = ['text', 'number', 'file', 'dropdown'];
+    const validTypes = ['text', 'number', 'file'];
     if (!fields.every(f => validTypes.includes(f.type))) {
       return res.status(400).json({ error: "Invalid field type" });
     }

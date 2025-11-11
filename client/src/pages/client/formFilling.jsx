@@ -36,11 +36,6 @@ export function FormFilling() {
   }
 
   const handleFileChange = (label, file) => {
-    const allowedTypes = ['application/pdf', 'image/jpeg', 'image/png']
-    if (!allowedTypes.includes(file.type)) {
-      alert('Only PDF or Image files are allowed!')
-      return
-    }
     setFiles(prev => ({ ...prev, [label]: file }))
   }
 
@@ -77,7 +72,7 @@ export function FormFilling() {
 
   if (!form) return (
     <div className='text-center text-red-400 mt-10'>
-      <h2>⚠️ Form not found or failed to load.</h2>
+      <h2> Form not found or failed to load.</h2>
       <Link to='/home' className='text-blue-400 underline block mt-4'>← Back to Home</Link>
     </div>
   )

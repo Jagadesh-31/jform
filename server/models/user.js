@@ -1,15 +1,27 @@
 let mongoose = require('mongoose')
 
-const responseSchema = new mongoose.Schema(
-{
-  formId: { type: mongoose.Schema.Types.ObjectId, ref: 'Form' },
-  data: Object,
-  files: [String],  
-  submittedAt: Date
-},
-{ strict: false }
+const userSchema = new mongoose.Schema(
+  {
+    profileImageUrl:{type:String,default:'https://res.cloudinary.com/diizmtj04/image/upload/v1751293061/default-pic_kl5jwr.avif'},
+    role: {
+      type: String,
+      enum: ['admin','client'],
+      default: 'client'
+    },
+    username: {
+      type: String
+    },
+    email: {
+      type: String,
+      required: true,
+      unique: true
+    },
+    password: {
+      type: String
+    }
+  }
 ) 
 
-let responseModel = mongoose.model('users', responseSchema)
+let userModel = mongoose.model('users', userSchema)
 
-module.exports = responseModel
+module.exports = userModel

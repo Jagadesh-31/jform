@@ -4,11 +4,11 @@ const fieldSchema = new mongoose.Schema({
   label: { type: String, required: true },
   type: { 
     type: String, 
-    enum: ['text', 'number', 'file', 'dropdown'], 
+    enum: ['text', 'number', 'file'], 
     required: true 
   },
   required: { type: Boolean, default: false },
-  options: { type: [String], default: [] }
+
 }, { _id : false });
 
 const formSchema = new mongoose.Schema({

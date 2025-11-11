@@ -24,24 +24,6 @@ export function CreateForm() {
     setFields(updated);
   };
 
-  const addOption = (index) => {
-    const updated = [...fields];
-    if (!updated[index].options) updated[index].options = [];
-    updated[index].options.push('');
-    setFields(updated);
-  };
-
-  const updateOption = (fieldIndex, optionIndex, value) => {
-    const updated = [...fields];
-    updated[fieldIndex].options[optionIndex] = value;
-    setFields(updated);
-  };
-
-  const removeOption = (fieldIndex, optionIndex) => {
-    const updated = [...fields];
-    updated[fieldIndex].options.splice(optionIndex, 1);
-    setFields(updated);
-  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
