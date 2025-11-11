@@ -20,11 +20,12 @@ export function ProtectedRoute ({allowedRoles}) {
 
       if(!user){
        navigate('/login');
-      } else{
-       if(!allowedRoles.includes(user.role)){
-          navigate('/unauthorized');
-        }
-      }
+       } 
+       //else{
+      //  if(!allowedRoles.includes(user.role)){
+      //     navigate('/unauthorized');
+      //   }
+      // }
   }},[authLoading,user])
 
 
